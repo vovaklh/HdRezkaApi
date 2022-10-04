@@ -4,6 +4,7 @@ from typing import Union
 from hd_rezka_parser import HdRezkaParser
 from hd_rezka_api import HdRezkaApi
 import enum
+import socket
 
 app = FastAPI()
 
@@ -127,4 +128,6 @@ class ContentGenre(enum.Enum):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="192.168.0.110", port=8888)
+    hostname = socket.gethostname()
+    ip = socket.gethostbyname(hostname)
+    uvicorn.run(app, host=ip, port=8888)

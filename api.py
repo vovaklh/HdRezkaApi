@@ -9,6 +9,11 @@ import socket
 app = FastAPI()
 
 
+@app.get("/")
+def root():
+    return {"Hello": "World"}
+
+
 @app.get("/content/page/{page}")
 async def get_content(page: int, filter: str = "last", type: str = "all", mirror: Union[str, None] = Header(default="https://hdrezka.ag/"),):
     url: str = create_url(page, filter, type, mirror)

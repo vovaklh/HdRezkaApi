@@ -211,7 +211,7 @@ class HdRezkaApi():
                 "action": "get_episodes"
             }
             r = requests.post(
-                "https://hdrezka.ag/ajax/get_cdn_series/", data=js, headers=self.HEADERS)
+                "https://hdrezka.co/ajax/get_cdn_series/", data=js, headers=self.HEADERS)
             response = r.json()
             if response['success']:
                 seasons, episodes = self.getEpisodes(
